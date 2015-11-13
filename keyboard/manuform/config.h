@@ -28,8 +28,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DESCRIPTION     t.m.k. keyboard firmware for ManuForm
 
 /* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 16
+#define MATRIX_ROWS 16
+#define MATRIX_COLS 6
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
@@ -55,10 +55,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /* disable debug print */
-//#define NO_DEBUG
+#define NO_DEBUG
 
 /* disable print */
-//#define NO_PRINT
+#define NO_PRINT
 
 /* disable action features */
 //#define NO_ACTION_LAYER

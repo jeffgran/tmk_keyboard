@@ -74,7 +74,6 @@ uint8_t matrix_scan(void)
         select_row(i);
         _delay_us(30);  // without this wait read unstable value.
         matrix_row_t cols = read_cols();
-        print("cols: ");print_bin8(cols);print("\n");
         if (matrix_debouncing[i] != cols) {
             matrix_debouncing[i] = cols;
             if (debouncing) {
@@ -136,7 +135,7 @@ uint8_t matrix_key_count(void)
 }
 
 /* Column pin configuration
- * row: 0   1   2   3   4   5
+ * col: 0   1   2   3   4   5
  * pin: D3  C6  D5  B4  D7  D4
  */
 static void  init_cols(void)
@@ -152,16 +151,17 @@ static void  init_cols(void)
 
 static matrix_row_t read_cols(void)
 {
-    return (PIND&(1<<4) ? 0 : (1<<5)) |
-           (PIND&(1<<7) ? 0 : (1<<4)) |
-           (PINB&(1<<4) ? 0 : (1<<3)) |
-           (PIND&(1<<5) ? 0 : (1<<2)) |
-           (PINC&(1<<6) ? 0 : (1<<1)) |
-           (PIND&(1<<3) ? 0 : (1<<0));
+    return
+        (PIND&(1<<4) ? 0 : (1<<5)) |
+        (PIND&(1<<7) ? 0 : (1<<4)) |
+        (PINB&(1<<4) ? 0 : (1<<3)) |
+        (PIND&(1<<5) ? 0 : (1<<2)) |
+        (PINC&(1<<6) ? 0 : (1<<1)) |
+        (PIND&(1<<3) ? 0 : (1<<0));
 }
 
 /* Row pin configuration
- * col: 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15
+ * row: 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15
  * pin: B0  B1  B2  B3  B7  D0  D1  D2  B5  B6  F7  F6  F5  F4  F1  F0
  */
 static void unselect_rows(void)

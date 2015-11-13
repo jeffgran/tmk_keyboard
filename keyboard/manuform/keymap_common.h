@@ -33,24 +33,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const uint16_t fn_actions[];
 
-
-/* GH60 keymap definition macro
- * K2C, K31 and  K3C are extra keys for ISO
- */
+    /* K00, K01, K02, K03, K04, K05, K06, K07, \ */
+    /* K10, K11, K12, K13, K14, K15, K16, K17, \ */
+    /* K20, K21, K22, K23, K24, K25, K26, K27, \ */
+    /*                                         K38, K39, K3A, K3B, K3C, K3D, K3E, K3F, \ */
+    /*                                         K48, K49, K4A, K4B, K4C, K4D, K4E, K4F, \ */
+    /*                                         K58, K59, K5A, K5B, K5C, K5D, K5E, K5F  \ */
 #define KEYMAP( \
-    K00, K01, K02, K03, K04, K05, K06, K07, \
-    K10, K11, K12, K13, K14, K15, K16, K17, \
-    K20, K21, K22, K23, K24, K25, K26, K27, \
-                                            K38, K39, K3A, K3B, K3C, K3D, K3E, K3F, \
-                                            K48, K49, K4A, K4B, K4C, K4D, K4E, K4F, \
-                                            K58, K59, K5A, K5B, K5C, K5D, K5E, K5F \
+    K00, K01, K02, K03, K04, K05,     K3A, K3B, K3C, K3D, K3E, K3F, \
+    K10, K11, K12, K13, K14, K15,     K4A, K4B, K4C, K4D, K4E, K4F, \
+    K20, K21, K22, K23, K24, K25,     K5A, K5B, K5C, K5D, K5E, K5F, \
+                        K06, K07,     K38, K39,  \
+                        K16, K17,     K48, K49,  \
+                        K26, K27,     K58, K59  \
 ) { \
-    { KC_##K00, KC_##K01, KC_##K02, KC_##K03, KC_##K04, KC_##K05, KC_##K06, KC_##K07, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO   }, \
-    { KC_##K10, KC_##K11, KC_##K12, KC_##K13, KC_##K14, KC_##K15, KC_##K16, KC_##K17, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO   }, \
-    { KC_##K20, KC_##K21, KC_##K22, KC_##K23, KC_##K24, KC_##K25, KC_##K26, KC_##K27, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO   }, \
-    { KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_##K38, KC_##K39, KC_##K3A, KC_##K3B, KC_##K3C, KC_##K3D, KC_##K3E, KC_##K3F }, \
-    { KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_##K48, KC_##K49, KC_##K4A, KC_##K4B, KC_##K4C, KC_##K4D, KC_##K4E, KC_##K4F },\
-    { KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_##K58, KC_##K59, KC_##K5A, KC_##K5B, KC_##K5C, KC_##K5D, KC_##K5E, KC_##K5F }  \
+    { KC_##K00, KC_##K10, KC_##K20, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K01, KC_##K11, KC_##K21, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K02, KC_##K12, KC_##K22, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K03, KC_##K13, KC_##K23, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K04, KC_##K14, KC_##K24, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K05, KC_##K15, KC_##K25, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K06, KC_##K16, KC_##K26, KC_P1, KC_P1, KC_P1 }, \
+    { KC_##K07, KC_##K17, KC_##K27, KC_P1, KC_P1, KC_P1 }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K38, KC_##K48, KC_##K58 }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K39, KC_##K49, KC_##K59 }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3A, KC_##K4A, KC_##K5A }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3B, KC_##K4B, KC_##K5B }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3C, KC_##K4C, KC_##K5C }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3D, KC_##K4D, KC_##K5D }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3E, KC_##K4E, KC_##K5E }, \
+    { KC_P1, KC_P1, KC_P1, KC_##K3F, KC_##K4F, KC_##K5F } \
 }
 
 #endif
