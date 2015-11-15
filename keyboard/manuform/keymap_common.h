@@ -33,13 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const uint16_t fn_actions[];
 
-    /* K00, K01, K02, K03, K04, K05, K06, K07, \ */
-    /* K10, K11, K12, K13, K14, K15, K16, K17, \ */
-    /* K20, K21, K22, K23, K24, K25, K26, K27, \ */
-    /*                                         K38, K39, K3A, K3B, K3C, K3D, K3E, K3F, \ */
-    /*                                         K48, K49, K4A, K4B, K4C, K4D, K4E, K4F, \ */
-    /*                                         K58, K59, K5A, K5B, K5C, K5D, K5E, K5F  \ */
-#define KEYMAP( \
+#define KEYMAP(                                                     \
     K00, K01, K02, K03, K04, K05,     K3A, K3B, K3C, K3D, K3E, K3F, \
     K10, K11, K12, K13, K14, K15,     K4A, K4B, K4C, K4D, K4E, K4F, \
     K20, K21, K22, K23, K24, K25,     K5A, K5B, K5C, K5D, K5E, K5F, \
