@@ -2,8 +2,6 @@
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-
-
     /* *************** */
     /* Layer 0: qwerty */
     /* *************** */
@@ -22,11 +20,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*                               |      |      |               |      |      |                               */
     /*                               |______|______|_             _|______|______|                               */
     /*                                 |      |      |           |      |      |                                 */
-    /*                                 | SYM  | NUM  |           | AROW | SYM  |                                 */
-    /*                                 |_LYR__|_LYR__|_         _|_LYR__|_LYR__|                                 */
+    /*                                 | TAB  | SYM  |           | SYM  |  ENT |                                 */
+    /*                                 |______|_LYR__|_         _|_LYR__|______|                                 */
     /*                                   |      |      |       |      |      |                                   */
-    /*                                   |  ALT | TAB  |       |  ENT | ALT  |                                   */
-    /*                                   |______|______|       |______|______|                                   */
+    /*                                   |  ESC | NUM  |       | AROW | ALT  |                                   */
+    /*                                   |______|_LYR__|       |__LYR_|______|                                   */
     /*                                                                                                           */
     /*                                                                                                           */
     /*                                                                                                           */
@@ -35,13 +33,66 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            LCTL,   A,   S,   D,   F,   G,  /* */     H,   J,   K,   L,SCLN,RGUI, \
            LALT,   Z,   X,   C,   V,   B,  /* */     N,   M,COMM, DOT,SLSH,RALT, \
            /*                */BSPC,LGUI,  /* */  RCTL, SPC,                     \
-           /*                */ FN1, FN2,  /* */   FN4, FN1,                     \
-           /*                */LALT, TAB,  /* */   ENT,RALT),
+           /*                */ TAB, FN1,  /* */   FN1, ENT,                     \
+           /*                */ ESC, FN2,  /* */   FN2,RGUI),
 
+
+    /* *********************** */
+    /* Layer 1: JG Soft Layout */
+    /* *********************** */
+    /*  _________________________________________                     _________________________________________  */
+    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
+    /* | SHFT |  Z   |  Y   |  C   |  P   |  K   |                   |  J   |  F   |  U   |  L   |  Q   | SHFT | */
+    /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
+    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
+    /* | CTRL |  O   |  I   |  T   |  S   |  G   |                   |  M   |  N   |  E   |  R   |  A   |  CMD | */
+    /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
+    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
+    /* |  ALT |  ;   |  ,   |  B   |  D   |  V   |                   |  X   |  H   |  W   |  .   |  /   |  ALT | */
+    /* |______|______|______|______|______|______|_                 _|______|______|______|______|______|______| */
+    /*                               |      |      |               |      |      |                               */
+    /*                               | BSPC | CMD  |               | CTRL | SPC  |                               */
+    /*                               |      |      |               |      |      |                               */
+    /*                               |______|______|_             _|______|______|                               */
+    /*                                 |      |      |           |      |      |                                 */
+    /*                                 | TAB  | SYM  |           | SYM  |  ENT |                                 */
+    /*                                 |______|_LYR__|_         _|_LYR__|______|                                 */
+    /*                                   |      |      |       |      |      |                                   */
+    /*                                   |  ESC | NUM  |       | AROW | ALT  |                                   */
+    /*                                   |______|_LYR__|       |__LYR_|______|                                   */
+    /*                                                                                                           */
+    /*                                                                                                           */
+    /*                                                                                                           */
+    KEYMAP(
+           FN11,   Z,   Y,   C,   P,   K,  /* */     J,   F,   U,   L,   Q,FN10, \
+           LCTL,   O,   I,   T,   S,   G,  /* */     M,   N,   E,   R,   A,RGUI, \
+           LALT,SCLN,COMM,   B,   D,   V,  /* */     X,   H,   W, DOT,SLSH,RALT, \
+           /*                */BSPC,LGUI,  /* */  RCTL, SPC,                     \
+           /*                */ TAB, FN1,  /* */   FN1, ENT,                     \
+           /*                */ ESC, FN2,  /* */   FN4,RGUI),
+
+
+
+    /* DISABLED, DOESN'T WORK  */
+    /* DISABLED, DOESN'T WORK  */
+    /* ************* */
+    /* Layer 2: mods */
+    /* ************* */
+    /* DISABLED, DOESN'T WORK  */
+    /* DISABLED, DOESN'T WORK  */
+    /* the idea was to have the mods keys be transparent on the two default layers above, and have this layer always be active, just for DRYness.
+       doesn't work because the SET_CLEAR keys (used for 2xFN1=FN3) clear this layer too. :(  */
+    KEYMAP(
+           FN11,TRNS,TRNS,TRNS,TRNS,TRNS,  /* */  TRNS,TRNS,TRNS,TRNS,TRNS,FN10, \
+           LCTL,TRNS,TRNS,TRNS,TRNS,TRNS,  /* */  TRNS,TRNS,TRNS,TRNS,TRNS,RGUI, \
+           LALT,TRNS,TRNS,TRNS,TRNS,TRNS,  /* */  TRNS,TRNS,TRNS,TRNS,TRNS,RALT, \
+           /*                */BSPC,LGUI,  /* */  RCTL, SPC,                     \
+           /*                */ FN2, FN1,  /* */   FN1, FN4,                     \
+           /*                */ ESC, TAB,  /* */   ENT,RGUI),
 
 
     /* **************** */
-    /* Layer 1: symbols */
+    /* Layer 3: symbols */
     /* **************** */
     /*  _________________________________________                     _________________________________________  */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
@@ -54,83 +105,83 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* |  ALT |      |  [   |  ]   |  -   |  <   |                   |  /   |  !   |  @   |  #   |  ?   |  ALT | */
     /* |______|______|______|______|______|______|_                 _|______|______|______|______|______|______| */
     /*                               |      |      |               |      |      |                               */
-    /*                               |  DEL | CMD  |               | CTRL |   _  |                               */
+    /*                               |  DEL |      |               |      |   _  |                               */
     /*                               |      |      |               |      |      |                               */
     /*                               |______|______|_             _|______|______|                               */
     /*                                 |      |      |           |      |      |                                 */
-    /*                                 |  FN  |      |           |      |  FN  |                                 */
-    /*                                 |__LYR_|______|_         _|______|__LYR_|                                 */
+    /*                                 |      | FN   |           | FN   |      |                                 */
+    /*                                 |______|_LYR__|_         _|_LYR__|______|                                 */
     /*                                   |      |      |       |      |      |                                   */
-    /*                                   |  ALT | TAB  |       |  ENT | ALT  |                                   */
+    /*                                   |      |      |       |      |      |                                   */
     /*                                   |______|______|       |______|______|                                   */
     /*                                                                                                           */
     /*                                                                                                           */
     /*                                                                                                           */
     KEYMAP(
-           TRNS,FN14,FN25,FN26,FN15, FN0,  /* */  FN12,FN23,FN24,FN25,FN29,TRNS, \
-           TRNS, GRV,FN16,FN13, EQL,QUOT,  /* */  FN30,FN20,FN21,FN22,BSLS,TRNS, \
+           TRNS,FN14,FN25,FN26,PPLS, FN8,  /* */  FN12,FN23,PAST,FN25,FN29,TRNS, \
+           TRNS, GRV,FN16,FN13, EQL,FN30,  /* */  QUOT,FN20,FN21,FN22,BSLS,TRNS, \
            TRNS,  NO,LBRC,RBRC,MINS,FN31,  /* */  SLSH,FN17,FN18,FN19, FN6,TRNS, \
            /*                */ DEL,TRNS,  /* */  TRNS,FN28,                     \
-           /*                */ FN3,  NO,  /* */  NO  , FN3,                     \
-           /*                */TRNS,TRNS,  /* */  TRNS,TRNS),
+           /*                */TRNS, FN3,  /* */   FN3,TRNS,                     \
+           /*                */TRNS,  NO,  /* */    NO,TRNS),
 
 
 
-    /* **************** */
-    /* Layer 2: numbers */
-    /* **************** */
+    /* ************************* */
+    /* Layer 4: numbers/movement */
+    /* ************************* */
     /*  _________________________________________                     _________________________________________  */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | SHFT |      |      |      |      |      |                   |      |  7   |  8   |  9   |      | SHFT | */
+    /* | SHFT |      | HOME |  UP  |  END | PGUP |                   |      |  7   |  8   |  9   |      | SHFT | */
     /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | CTRL |      |      |      |      |      |                   |      |  4   |  5   |  6   |      |  CMD | */
+    /* | CTRL |      |  <-  |      |  ->  | ESC  |                   |      |  4   |  5   |  6   |      |  CMD | */
     /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* |  ALT |      |      |      |      |      |                   |      |  1   |  2   |  3   |      |  ALT | */
+    /* |  ALT |      |      | DOWN |      | PGDN |                   |      |  1   |  2   |  3   |      |  ALT | */
     /* |______|______|______|______|______|______|_                 _|______|______|______|______|______|______| */
     /*                               |      |      |               |      |      |                               */
-    /*                               |      | CMD  |               | CTRL |   0  |                               */
+    /*                               |      |      |               |      |   0  |                               */
     /*                               |      |      |               |      |      |                               */
     /*                               |______|______|_             _|______|______|                               */
     /*                                 |      |      |           |      |      |                                 */
     /*                                 |      |      |           |      |      |                                 */
     /*                                 |______|______|_         _|______|______|                                 */
     /*                                   |      |      |       |      |      |                                   */
-    /*                                   |  ALT |      |       |  ENT |      |                                   */
+    /*                                   |      |      |       |      |      |                                   */
     /*                                   |______|______|       |______|______|                                   */
     /*                                                                                                           */
     /*                                                                                                           */
     /*                                                                                                           */
     KEYMAP(
-           TRNS,  NO,  NO,  NO,  NO,  NO,  /* */    NO,   7,   8,   9,  NO,TRNS, \
-           TRNS,  NO,  NO,  NO,  NO,  NO,  /* */    NO,   4,   5,   6,  NO,TRNS, \
-           TRNS,  NO,  NO,  NO,  NO,  NO,  /* */    NO,   1,   2,   3,  NO,TRNS, \
+           TRNS,  NO,HOME,  UP, END,PGUP,  /* */    NO,   7,   8,   9,  NO,TRNS, \
+           TRNS,  NO,LEFT, INS,RGHT, ESC,  /* */    NO,   4,   5,   6,  NO,TRNS, \
+           TRNS,  NO,  NO,DOWN,  NO,PGDN,  /* */    NO,   1,   2,   3,  NO,TRNS, \
            /*                */TRNS,TRNS,  /* */  TRNS,   0,                     \
-           /*                */TRNS,TRNS,  /* */  TRNS, FN3,                     \
+           /*                */TRNS,  NO,  /* */    NO,  NO,                     \
            /*                */TRNS,TRNS,  /* */  TRNS,TRNS),
 
 
 
     /* ************** */
-    /* Layer 3: FKeys */
+    /* Layer 5: FKeys */
     /* ************** */
     /*  _________________________________________                     _________________________________________  */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | SHFT |      |      |      | VOLUP|      |                   |      |  F7  |  F8  |  F9  |  F11 | SHFT | */
+    /* | SHFT |      |      |      | VOLUP|      |                   |      |  F7  |  F8  |  F9  |  F10 | SHFT | */
     /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | CTRL |      |      |      | MUTE |      |                   |      |  F4  |  F5  |  F6  |  F12 |  CMD | */
+    /* | CTRL |      |      |      | MUTE |      |                   |      |  F4  |  F5  |  F6  |  F11 |  CMD | */
     /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
     /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* |  ALT |      |      |      | VOLDN|      |                   |      |  F1  |  F2  |  F3  |      |  ALT | */
+    /* |  ALT |      |      |      | VOLDN|      |                   |      |  F1  |  F2  |  F3  |  F12 |  ALT | */
     /* |______|______|______|______|______|______|_                 _|______|______|______|______|______|______| */
     /*                               |      |      |               |      |      |                               */
-    /*                               |      |      |               |      | F10  |                               */
+    /*                               |      |      |               |      |      |                               */
     /*                               |      |      |               |      |      |                               */
     /*                               |______|______|_             _|______|______|                               */
     /*                                 |      |      |           |      |      |                                 */
-    /*                                 |      |      |           |      |      |                                 */
+    /*                                 |      |      |           |      | JGSL |                                 */
     /*                                 |______|______|_         _|______|______|                                 */
     /*                                   |      |      |       |      |      |                                   */
     /*                                   |      |      |       |      |      |                                   */
@@ -139,49 +190,12 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*                                                                                                           */
     /*                                                                                                           */
     KEYMAP(
-           TRNS,  NO,  NO,  NO,VOLU,  NO,  /* */  TRNS,  F7,  F8,  F9, F11,TRNS, \
-           TRNS,  NO,  NO,  NO,MUTE,  NO,  /* */  TRNS,  F4,  F5,  F6, F12,TRNS, \
-           TRNS,  NO,  NO,  NO,VOLD,  NO,  /* */  TRNS,  F1,  F2,  F3,TRNS,TRNS, \
-           /*                */TRNS,TRNS,  /* */  TRNS,TRNS,                     \
-           /*                */TRNS,TRNS,  /* */  TRNS,TRNS,                     \
-           /*                */TRNS,TRNS,  /* */  TRNS,TRNS),
-
-
-
-    /* ************************ */
-    /* Layer 4: Arrows/movement */
-    /* ************************ */
-    /*  _________________________________________                     _________________________________________  */
-    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | SHFT |      | HOMW |  UP  | PGUP |      |                   |      |      |      |      |      | SHFT | */
-    /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
-    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* | CTRL |      |  <-  |      |  ->  |      |                   |      |      |      |      |      |  CMD | */
-    /* |______|______|______|______|______|______|                   |______|______|______|______|______|______| */
-    /* |      |      |      |      |      |      |                   |      |      |      |      |      |      | */
-    /* |  ALT |      | END  | DOWN | PGDN |      |                   |      |      |      |      |      |  ALT | */
-    /* |______|______|______|______|______|______|_                 _|______|______|______|______|______|______| */
-    /*                               |      |      |               |      |      |                               */
-    /*                               |      |      |               |      |      |                               */
-    /*                               |      |      |               |      |      |                               */
-    /*                               |______|______|_             _|______|______|                               */
-    /*                                 |      |      |           |      |      |                                 */
-    /*                                 |      |      |           |      |      |                                 */
-    /*                                 |______|______|_         _|______|______|                                 */
-    /*                                   |      |      |       |      |      |                                   */
-    /*                                   |      |      |       |      |      |                                   */
-    /*                                   |______|______|       |______|______|                                   */
-    /*                                                                                                           */
-    /*                                                                                                           */
-    /*                                                                                                           */
-    KEYMAP(
-           TRNS,  NO,HOME,  UP,PGUP,  NO,  /* */    NO,  NO,  NO,  NO,  NO,TRNS, \
-           TRNS,  NO,LEFT,  NO,RGHT,  NO,  /* */    NO,  NO,  NO,  NO,  NO,TRNS, \
-           TRNS,  NO, END,DOWN,PGDN,  NO,  /* */    NO,  NO,  NO,  NO,  NO,TRNS, \
+           TRNS,  NO,  NO,  NO,VOLU,  NO,  /* */  TRNS,  F7,  F8,  F9, F10,TRNS, \
+           TRNS,  NO,  NO,  NO,MUTE,  NO,  /* */  TRNS,  F4,  F5,  F6, F11,TRNS, \
+           TRNS,  NO,  NO,  NO,VOLD,  NO,  /* */  TRNS,  F1,  F2,  F3, F12,TRNS, \
            /*                */TRNS,TRNS,  /* */  TRNS,  NO,                     \
-           /*                */TRNS, FN9,  /* */  TRNS,TRNS,                     \
-           /*                */TRNS,TRNS,  /* */  TRNS,TRNS)
-
+           /*                */  NO,TRNS,  /* */  TRNS, FN5,                     \
+           /*                */TRNS,TRNS,  /* */   FN5,TRNS),
 
 
     /* Layer x: blank */
@@ -195,13 +209,17 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 const uint16_t PROGMEM fn_actions[] = {
-    [1] = ACTION_LAYER_SET_CLEAR(1),  // symbol layer
-    [2] = ACTION_LAYER_SET_CLEAR(2),  // number layer
-    [3] = ACTION_LAYER_SET_CLEAR(3),  // Fkeys layer
-    [4] = ACTION_LAYER_MOMENTARY(4),  // arrow layer
-    [5] = ACTION_LAYER_MOMENTARY(5),  // alternate alpha layout
+    //[0] = ACTION_LAYER_TOGGLE(2), // turn mods on :/
+    [1] = ACTION_LAYER_SET_CLEAR(3),  // symbol layer
+    [2] = ACTION_LAYER_SET_CLEAR(4),  // number layer
+    [3] = ACTION_LAYER_SET_CLEAR(5),  // Fkeys layer
+    [4] = ACTION_LAYER_MOMENTARY(6),  // arrow layer
+
+    //[5] = ACTION_DEFAULT_LAYER_SET(1),  // alternate alpha layout
+    [5] = ACTION_DEFAULT_LAYER_BIT_XOR((1/4), 1<<(1)),
 
 
+    [8] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT),               // FN8 = >
     [9]  = ACTION_MODS_KEY(MOD_RCTL, KC_SPC),              // FN9 = CTRL+SPACE
     [10] = ACTION_MODS_TAP_KEY(MOD_RSFT, KC_CAPS),         // FN10 = shift, or tap for toggle capslock
     [11] = ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT)),  // FN11 = shift, or tap for oneshot shift
@@ -212,7 +230,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [12] = ACTION_MODS_KEY(MOD_LSFT, KC_SCLN),             // FN12 = :
     [13] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRC),             // FN13 = }
     [14] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV),              // FN14 = ~
-    [15] = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),              // FN15 = +
+
     [16] = ACTION_MODS_KEY(MOD_LSFT, KC_LBRC),             // FN16 = {
 
 
@@ -223,17 +241,16 @@ const uint16_t PROGMEM fn_actions[] = {
     [21] = ACTION_MODS_KEY(MOD_LSFT, KC_5),                // FN21 = %
     [22] = ACTION_MODS_KEY(MOD_LSFT, KC_6),                // FN22 = ^
     [23] = ACTION_MODS_KEY(MOD_LSFT, KC_7),                // FN23 = &
-    [24] = ACTION_MODS_KEY(MOD_LSFT, KC_8),                // FN24 = *
+
     [25] = ACTION_MODS_KEY(MOD_LSFT, KC_9),                // FN25 = (
     [26] = ACTION_MODS_KEY(MOD_LSFT, KC_0),                // FN26 = )
 
-    [27] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB),              // FN27 = Shifted Tab
+    //[27] = ACTION_MODS_KEY(MOD_LSFT, KC_TAB),              // FN27 = Shifted Tab
     [28] = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),             // FN28 = _
     [29] = ACTION_MODS_KEY(MOD_LSFT, KC_BSLS),             // FN29 = |
-    [30] = ACTION_MODS_KEY(MOD_LSFT, KC_QUOT),              // FN30 = "
+    [30] = ACTION_MODS_KEY(MOD_LSFT, KC_QUOT),             // FN30 = "
 
     [31] = ACTION_MODS_KEY(MOD_LSFT, KC_COMM),             // FN31 = <
-    [0] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT),              // FN32 = >
-    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_SLSH)             // FN33 = ?
+    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_SLSH)               // FN6 = ?
 
 };
