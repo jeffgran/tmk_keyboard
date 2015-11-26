@@ -63,10 +63,18 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*                                                                                                           */
     /*                                                                                                           */
     /*                                                                                                           */
+    /* KEYMAP( */
+    /*        FN11,   Z,   Y,   C,   P,   K,  /\* *\/     J,   F,   U,   L,   Q,FN10, \ */
+    /*        LCTL,   O,   I,   T,   S,   G,  /\* *\/     M,   N,   E,   R,   A,RGUI, \ */
+    /*        LALT,SCLN,COMM,   B,   D,   V,  /\* *\/     X,   H,   W, DOT,SLSH,RALT, \ */
+    /*        /\*                *\/BSPC,LGUI,  /\* *\/  RCTL, SPC,                     \ */
+    /*        /\*                *\/ TAB, FN1,  /\* *\/   FN1, ENT,                     \ */
+    /*        /\*                *\/ ESC, FN2,  /\* *\/   FN4,RGUI), */
+    /* workman */
     KEYMAP(
-           FN11,   Z,   Y,   C,   P,   K,  /* */     J,   F,   U,   L,   Q,FN10, \
-           LCTL,   O,   I,   T,   S,   G,  /* */     M,   N,   E,   R,   A,RGUI, \
-           LALT,SCLN,COMM,   B,   D,   V,  /* */     X,   H,   W, DOT,SLSH,RALT, \
+           FN11,   Q,   D,   R,   W,   B,  /* */     J,   F,   U,   P,SCLN,FN10, \
+           LCTL,   A,   S,   H,   T,   G,  /* */     Y,   N,   E,   O,   I,RGUI, \
+           LALT,   Z,   X,   M,   C,   V,  /* */     K,   L,COMM, DOT,SLSH,RALT, \
            /*                */BSPC,LGUI,  /* */  RCTL, SPC,                     \
            /*                */ TAB, FN1,  /* */   FN1, ENT,                     \
            /*                */ ESC, FN2,  /* */   FN4,RGUI),
@@ -210,20 +218,19 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 const uint16_t PROGMEM fn_actions[] = {
     //[0] = ACTION_LAYER_TOGGLE(2), // turn mods on :/
+
     [1] = ACTION_LAYER_SET_CLEAR(3),  // symbol layer
     [2] = ACTION_LAYER_SET_CLEAR(4),  // number layer
     [3] = ACTION_LAYER_SET_CLEAR(5),  // Fkeys layer
     [4] = ACTION_LAYER_MOMENTARY(6),  // arrow layer
 
-    //[5] = ACTION_DEFAULT_LAYER_SET(1),  // alternate alpha layout
-    [5] = ACTION_DEFAULT_LAYER_BIT_XOR((1/4), 1<<(1)),
-
+    [5] = ACTION_DEFAULT_LAYER_TOGGLE(1),                  // FN5 = toggle alternate alpha layout
 
     [8] = ACTION_MODS_KEY(MOD_LSFT, KC_DOT),               // FN8 = >
     [9]  = ACTION_MODS_KEY(MOD_RCTL, KC_SPC),              // FN9 = CTRL+SPACE
-    [10] = ACTION_MODS_TAP_KEY(MOD_RSFT, KC_CAPS),         // FN10 = shift, or tap for toggle capslock
-    [11] = ACTION_MODS_TAP_KEY(MOD_LSFT, ACTION_MODS_ONESHOT(MOD_LSFT)),  // FN11 = shift, or tap for oneshot shift
 
+    [10] = ACTION_MODS_TAP_TOGGLE(MOD_RSFT),               // FN10 = shift, or tap for toggle shift
+    [11] = ACTION_MODS_ONESHOT(MOD_LSFT),                  // FN11 = shift, tap for oneshot
 
 
     // Shifted keys
